@@ -1,0 +1,3 @@
+class PassData{
+  String productCode;
+}
