@@ -67,6 +67,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   void navigationPage() async {
-    Navigator.pushNamed(context, "/dashBoard");
+    Navigator.of(context)
+        .pushNamedAndRemoveUntil('/dashBoard', (Route<dynamic> route) => false);
   }
 }
