@@ -9,6 +9,7 @@ class Const {
 
   static const String INTERNET_CONNECTION = "PLEASE CHECK YOUR INTERNET";
   static const String NETWORK_ISSUE = "PLEASE CHECK YOUR INTERNET";
+  static const String PLACE_HOLDER = "https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png";
 
 }
 extension CapExtension on String {

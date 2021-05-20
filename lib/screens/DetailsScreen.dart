@@ -1,5 +1,6 @@
 import 'package:demo_skill_mine/models/DetailsModel.dart';
 import 'package:demo_skill_mine/providers/ApiFactory.dart';
+import 'package:demo_skill_mine/providers/Const.dart';
 import 'package:demo_skill_mine/scoped-models/MainModel.dart';
 import 'package:demo_skill_mine/widgets/MyWidgets.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +69,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         Align(
                             alignment: Alignment.center,
                             child: Image.network(
-                              model.image,
+                              model.image??Const.PLACE_HOLDER,
                               //scale: 10,
                               fit: BoxFit.fitWidth,
                             )),
@@ -84,8 +85,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                         SizedBox(
                           height: 4,
                         ),
-                        Text(model.description),
-                        MyWidgets.CircleContainer(model.category)
+                        Text(model.description??""),
+                        MyWidgets.CircleContainer(model.category??"")
                       ],
                     ),
                   ),

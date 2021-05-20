@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:demo_skill_mine/models/ProductsModel.dart';
 import 'package:demo_skill_mine/providers/ApiFactory.dart';
+import 'package:demo_skill_mine/providers/Const.dart';
 import 'package:demo_skill_mine/scoped-models/MainModel.dart';
 import 'package:demo_skill_mine/widgets/MyWidgets.dart';
 import 'package:dio/dio.dart';
@@ -72,7 +73,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       scrollDirection: Axis.horizontal,
                     ),
                   )
-                : Container(child: Text("Wait Loading")),
+                : Container(
+                    alignment: Alignment.center,
+                    height: 40,
+                    child: Text("Wait Loading...")),
             Divider(),
             (productList != null && productList.length > 0)
                 ? Expanded(
@@ -101,7 +105,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   Align(
                                       alignment: Alignment.center,
                                       child: Image.network(
-                                        model.image,
+                                        model.image??Const.PLACE_HOLDER,
                                         scale: 10,
                                         fit: BoxFit.fitWidth,
                                       )),
@@ -109,7 +113,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                     height: 10,
                                   ),
                                   Text(
-                                    model.title,
+                                    model.title??"",
                                     style: TextStyle(
                                         color: Colors.black,
                                         fontWeight: FontWeight.w600),
@@ -117,7 +121,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                   SizedBox(
                                     height: 4,
                                   ),
-                                  Text(model.description),
+                                  Text(model.description??""),
 //                                  Text("Price " + model.price),
                                   MaterialButton(
                                     onPressed: () {
@@ -149,7 +153,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                                         fit: BoxFit.fitWidth),
                                   ),
                                   child: Text(
-                                    "Price: " + model.price,
+                                    (model.price==null)?"":"Price: "+model.price,
                                     style: TextStyle(color: Colors.white),
                                   ),
                                 ),
